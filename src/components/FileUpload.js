@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from "./Navbar";
+import {
+  Box,
+  Container
+} from "@mui/material";
 
 function FileUpload() {
   const [file, setFile] = useState(null);
@@ -73,8 +77,9 @@ const userdata = JSON.parse(localStorage.getItem("userDataUser"));
   };
 
   return (
-    <div>
+   <Box sx={{ width: '100%', minHeight: '100vh', backgroundColor: '#f7f9fc', pb: 4 }}>
       <Navbar />
+      <Container maxWidth="xl" sx={{ mt: 3 }}>
       <h2>File Upload</h2>
       <form onSubmit={handleUpload}>
 
@@ -107,7 +112,8 @@ const userdata = JSON.parse(localStorage.getItem("userDataUser"));
         <button type="submit">Upload</button>
       </form>
       <p>{message}</p>
-    </div>
+      </Container>
+    </Box>
   );
 }
 

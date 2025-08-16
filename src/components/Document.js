@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
+  Box,
+  Container,
   Table,
   TableBody,
   TableCell,
@@ -11,6 +13,7 @@ import {
   TablePagination,
 } from "@mui/material";
 import Navbar from "./Navbar";
+import { Link } from 'react-router-dom';
 
 
 const Document = () => {
@@ -18,7 +21,7 @@ const Document = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
 
   // Fetch Data
@@ -124,8 +127,9 @@ const Document = () => {
 };
 
   return (
-    <div>
+    <Box sx={{ width: '100%', minHeight: '100vh', backgroundColor: '#f7f9fc', pb: 4 }}>
       <Navbar />
+      <Container maxWidth="xl" sx={{ mt: 3 }}>
       <Paper sx={{ width: "100%", margin: "auto", mt: 3, p: 2 }}>
         <TextField
           label="Search by Order Number or Status"
@@ -156,8 +160,8 @@ const Document = () => {
                     <TableCell>{user.trackNumber || "N/A"}</TableCell>
                 <TableCell>{user.createdAt ? formatDate(user.createdAt) : "N/A"}</TableCell>
                 <TableCell>{user.updatedAt ? formatDate(user.updatedAt) : "N/A"}</TableCell>
-                <TableCell>{user.uploadedBy || "N/A"}</TableCell>
-                <TableCell>{user.verifyBy || "N/A"}</TableCell>
+                <TableCell>{user.uploadedBy || <Link to={`/fileupload`}>"N/A"</Link>}</TableCell>
+                <TableCell>{user.verifyBy || <Link to={`/verifyupload`}>"N/A"</Link>}</TableCell>
                   
                   </TableRow>
                 ))}
@@ -173,7 +177,8 @@ const Document = () => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-    </div>
+      </Container>
+    </Box>
   );
 };
 

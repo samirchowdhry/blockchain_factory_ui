@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from "./Navbar";
+import {
+  Box,
+  Container
+} from "@mui/material";
 
 function VerifyUpload() {
   const [file, setFile] = useState(null);
@@ -75,8 +79,9 @@ function VerifyUpload() {
   };
 
   return (
-    <div>
+    <Box sx={{ width: '100%', minHeight: '100vh', backgroundColor: '#f7f9fc', pb: 4 }}>
       <Navbar />
+      <Container maxWidth="xl" sx={{ mt: 3 }}>
       <h2>Verify File</h2>
       <form onSubmit={handleUpload}>
   
@@ -110,7 +115,8 @@ function VerifyUpload() {
         <button type="submit">Verify</button>
       </form>
       <p>{message}</p>
-    </div>
+      </Container>
+    </Box>
   );
 }
 

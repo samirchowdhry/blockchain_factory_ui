@@ -16,26 +16,26 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h2>Logistics Supply Chain</h2>
+      <h2 style={{ marginLeft: '815px', marginTop: "30px" }}>Logistics Supply Chain</h2>
       <ul>
-        <li>
+        <li style={{marginTop: "15px"}}>
           <Link to="/document">Document</Link>
         </li>
         {userdata.roles !== 'ROLE_Verifier' && (
-        <li>
+        <li style={{marginTop: "15px"}}>
           <Link to="/fileupload">File Upload</Link>
         </li>
         )}
-        <li>
+        <li style={{marginTop: "15px"}}>
           <Link to="/verifyupload">Verify File</Link>
         </li>
         {userdata.roles === 'ROLE_Admin' && (
-         <li>
+         <li style={{marginTop: "15px"}}>
           <Link to="/updatefile">Update File</Link>
         </li>
         )}
         {userdata.roles === 'ROLE_Admin' && (
-        <li>
+        <li style={{marginTop: "15px"}}>
           <Link to="/userform">Users</Link>
         </li>
         )}

@@ -74,7 +74,7 @@ const Login = () => {
 
         {errorMessage && <p className="error">{errorMessage}</p>}
 
-        <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
+        <button style={{width : "105.5%"}} type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
       </form>
      
     </div>
